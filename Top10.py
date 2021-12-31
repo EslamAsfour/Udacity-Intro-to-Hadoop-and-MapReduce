@@ -13,11 +13,13 @@ def mapper():
     writer = csv.writer(sys.stdout, delimiter='\t', quotechar='"', quoting=csv.QUOTE_ALL)
     #Start Your Code
     allLines =[]
+    # Copy all the lines into list
     for line in reader:
         allLines.append(line)
     max = 0
     stage = ""
     added = []
+    # Each Loop get the max lenght item and add it to 'Added' list
     for i in range(10):
         max = 0
         reader = csv.reader(sys.stdin, delimiter='\t')
@@ -27,9 +29,9 @@ def mapper():
                 max = len(line[4])
                 stage = line
         added.append(stage)
+    # Reverse for descending
     added.reverse()
-    for i in added:
-        
+    for i in added:     
         writer.writerow(i)
 
 
